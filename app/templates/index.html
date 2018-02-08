@@ -1,3 +1,16 @@
 {% extends 'base.html' %} {% block content %}
+  {% block script %}
+  <script type="text/javascript">
+    $(document).ready(function() {
+        $('.btn').click(function() {
+        // y = $('.btn').text()
+        // console.log(y);
+        z = 'Changed'
+        x = $('.btn').text(z)
+        })
+    });
 
+  </script>
+  {% endblock %}
+  <button class="btn-primary btn" type="button" name="button">Tap me</button>
 {% endblock %}
