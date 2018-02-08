@@ -1,25 +1,45 @@
-{% extends 'base.html' %} {% block content %}
-  {% block script %}
-  <script type="text/javascript">
-    $(document).ready(function() {
-        $('.btn').click(function() {
-        // y = $('.btn').text()
-        // console.log(y);
-        // z = 'Changed'
-        // x = $('.btn').text(z)
+{% extends 'base.html' %} {% block content %} {% block script %}
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.btn').click(function() {
+      // y = $('.btn').text()
+      // console.log(y);
+      // z = 'Changed'
+      // x = $('.btn').text(z)
 
-          // y = $('.btn').text()
-          //
-          // z = parseInt(y)
-          // z ++;
-          $('.btn').html(function(i, val){return +val+1})
-          console.log(z)
+      // y = $('.btn').text()
+      //
+      // z = parseInt(y)
+      // z ++;
+      $('.btn').html(function(i, val) {
+        return +val + 1
+      })
+      // console.log(z)
 
 
-        })
-    });
-
-  </script>
-  {% endblock %}
-  <button class="btn-primary btn" type="button" name="button">1</button>
+    })
+  });
+</script>
 {% endblock %}
+<div class="container">
+  
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-3 col-sm-3 col-md-3">
+      <img src="http://image-cdn.dropr.com/image/dropr_1vgyw8y9oi0fznfiaoog1qlwkh0wv5m3_r1_920x1840.jpg" class="img-fluid">
+    </div>
+    <div class="col-xs-3 col-sm-3 col-md-3">
+      <img src="https://www.collater.al/wp-content/uploads/2013/03/d503284063f64090967b9128450d2e87_th.jpg" alt="" class="img-fluid">
+    </div>
+    <div class="col-xs-3 col-sm-3 col-md-3">
+      <img src="https://drscdn.500px.org/photo/235879085/m%3D1170/v2?webp=true&sig=52b29f6eaa48a11e304b1e2069a13694ab2bb8fd24d5341289f5342db6a43c00" class="img-fluid">
+    </div>
+    <div class="col-xs-3 col-sm-3 col-md-3">
+      <img src="http://image-cdn.dropr.com/image/dropr_29q72nlnxlraxj8c6znixzsn3sazsoeu_r1_920x1840.jpg" alt="" class="img-fluid mt-2">
+    </div>
+  </div>
+</div>
+
+
+<button class="btn-primary btn" type="button" name="button">1</button> {% endblock %}
