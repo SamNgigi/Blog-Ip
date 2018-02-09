@@ -106,3 +106,27 @@ class Blog(db.Model):
     def get_categories(cls, category):
         blog_cat = Blog.query.filter_by(categor=category)
         return blog_cat
+
+
+class Comments(db.Model):
+    """
+    Defining the comment object
+    """
+    __tablename__ = 'comments'
+
+    id = db.Column(db.Integer, primary_key=True)
+    comment = db.Column(db.String())
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+
+    def __init__(self, comment, users):
+        self.comment = comment
+        self.users = users
+
+    def save_comment(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def delete_comment(self):
+        db.session.delete(self)
+        db.session.commit()
