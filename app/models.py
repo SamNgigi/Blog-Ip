@@ -62,9 +62,9 @@ class User(UserMixin, db.Model):
 class PhotoProfile(db.Model):
     __tablename__ = 'profile_photos'
 
-    id = db.Column(db.String())
+    id = db.Column(db.String(), primary_key=True)
     pic_path = db.Column(db.String())
-    user_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
 
 class Blog(db.Model):
@@ -81,6 +81,21 @@ class Blog(db.Model):
     posted = db.Column(db.DateTime, default=datetime.utcnow)
     users_id = db.Column(db.Integer, db.ForeignKey("users.id"))
 
+    all_blogs = []
+
+    def __init__(self,
+                 q_body,
+                 q_author,
+                 p_url,
+                 category,
+                 posted):
+
+        self.q_body = q_body
+        self.q_author = q_author
+        self.p_url = p_url
+        self.category = category
+        self. posted = posted
+
     def save_blogs(self):
         db.session.add(self)
         db.session.commit()
@@ -94,4 +109,3 @@ class Blog(db.Model):
     def get_categories(cls, category):
         blog_cat = Blog.query.filter_by(categor=category)
         return blog_cat
-    all_blogs = []
