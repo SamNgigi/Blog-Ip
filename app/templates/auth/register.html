@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+  <form action method="post" class="form" role="form">
+    {{sign_up.hidden_tag()}}
+    <!-- Email -->
+    <div class="row mt-3">
+      {{sign_up.email.label()}}
+    </div>
+    <div class="row">
+      {{sign_up.email(class_='form-control', placeholder="Enter Email")}}
+    </div>
+    <!-- Username -->
+    <div class="row mt-3">
+        {{sign_up.username.label()}}
+    </div>
+    <div class="row">
+      {{sign_up.username(class_='form-control', placeholder="Your username")}}
+    </div>
+    <!-- Password -->
+    <div class="row mt-3">
+        {{sign_up.password.label()}}
+    </div>
+    <div class="row">
+      {{sign_up.password(class_='form-control', placeholder="Password")}}
+    </div>
+    <!-- Confirm -->
+    <div class="row mt-3">
+        {{sign_up.password2.label()}}
+    </div>
+    <div class="row">
+      {{sign_up.password2(class_='form-control', placeholder="Confirm Password")}}
+    </div>
+    <!-- Button -->
+    <div class="row mt-3">
+      {{sign_up.submit(class_="btn btn-outline-light")}}
+    </div>
+  </form>
+</div>
+{% endblock %}

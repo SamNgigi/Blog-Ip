@@ -1,1 +1,31 @@
-<h3>{{auth_test}}</h3>
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <form action method="post" class="form" role="form">
+      {{sign_in.hidden_tag()}}
+      <div class="row mt-3">
+        {{sign_in.email.label}}
+      </div>
+      <div class="row">
+        {{sign_in.email(class_="form-control", placeholder="Enter Email")}}
+      </div>
+      <div class="row mt-3">
+        {{sign_in.password.label}}
+      </div>
+      <div class="row">
+        {{{sign_in.password(class_="form-control", placeholder="Enter Password")}}
+      </div>
+      <div class="row ml-1 mt-3">
+      {{sign_in.remember.label}}
+      {{sign_in.remember(class_='form-check-input')}}
+      </div>
+      <div class="row">
+        {{sign_in}}
+      </div>
+      <div class="row mt-3">
+        {{sign_in.submit(class_="btn btn-outline-light")}}
+      </div>
+    </form>
+  </div>
+{% endblock %}
