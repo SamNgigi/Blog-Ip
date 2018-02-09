@@ -17,6 +17,7 @@ class User(UserMixin, db.Model):
     Defining the user object
     """
     __tablename__ = 'users'
+
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(255), index=True)
     email = db.Column(db.String(255), unique=True, index=True)
@@ -48,10 +49,6 @@ class User(UserMixin, db.Model):
         password to verify validity
         """
         return check_password_hash(self.password_hash, password)
-
-    def save_user(self):
-        db.session.add(self)
-        db.session.commit()
 
     def __repr__(self):
         return f'User {self.username}'
