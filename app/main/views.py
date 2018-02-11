@@ -1,6 +1,8 @@
 from . import main
-from flask import render_template
-from ..models import Blog
+from flask import render_template, redirect, url_for
+from ..models import Blog, Comments
+from .forms import CommentForm
+from flask_login import login_required, current_user
 # from .. import db
 
 
@@ -18,7 +20,19 @@ def posts():
 
 
 @main.route('/comments/<int:id>', methods=['GET', 'POST'])
+@login_required
 def comments(id):
-    test = "Working!"
+    comment_form = CommentForm()
+    comments = Comments.query.all()
     blog = Blog.query.get(id)
-    return render_template('comments.html', test=test, blog=blog)
+    if comment_form.validate_on_submit():
+        comment = comment_form.comment.data
+        # category=category
+        new_comment = Comments(comment=comment,
+                               users=current_user)
+        new_comment.save_comment()
+        return redirect(url_for('main.comments', id=blog.id))
+    return render_template('comments.html',
+                           blog=blog,
+                           comments=comments,
+                           comment_form=comment_form)

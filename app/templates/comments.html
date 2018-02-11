@@ -1,3 +1,32 @@
-{% extends 'base.html' %} {% block content %}
-<h1>{{test}}</h1>
+{% extends 'base.html' %} {% import 'macros.html' as macro %} {% block content %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-6">
+      <div id="f1_container">
+        <div id="f1_card" class="shadow">
+          <div class="front face">
+            <img src="{{blog.p_url}}" alt="" class="img-fluid">
+          </div>
+          <div class="back face center">
+            <h4><a href="/comments/">Here</a></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-6">
+      <form action method="post" class="form" role="form">
+        <div class="row mt-3">
+          {{comment_form.comment.label}}
+        </div>
+        <div class="row">
+          {{comment_form.hidden_tag()}} {{comment_form.comment(class_='form-control', placeholder="Tell us what you think")}}
+          <small id="" class="form-text text-muted">Please keep it short.</small>
+        </div>
+        <div class="row mt-3">
+          {{comment_form.submit(class_="btn btn-outline-warning")}}
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 {% endblock %}
