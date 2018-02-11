@@ -1,0 +1,17 @@
+{% macro displayBloglist(blog_list) %} {% for blog in blog_list %}
+<div class="col-xs-4 col-sm-4 col-md-4">
+  <div id="f1_container">
+    <div id="f1_card" class="shadow">
+      <div class="back face center">
+        <h4>Add Comment</h4>
+      </div>
+      <div class="front face">
+        <img src="{{blog.p_url}}" alt="" class="img-fluid ">
+      </div>
+      <div class="back face center">
+        <h4><a href="/comments/{{blog.id}}">Here</a></h4>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %} {% endmacro %}

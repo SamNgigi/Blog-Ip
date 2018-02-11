@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} {% import 'macros.html' as macro %} {% block content %}
 <!-- Navigation -->
 <ul class="nav nav-tabs nav-justified" role="tablist">
   <li class="nav-item">
@@ -171,53 +171,9 @@
   <div id="Architecture" class="tab-pane">
     <div class="container">
       <div class="row">
-        <div class="col-xs-4 col-sm-4 col-md-4">
-          <div id="f1_container">
-            <div id="f1_card" class="shadow">
-              <div class="back face center">
-                <h4>Add Comment</h4>
-              </div>
-              <div class="front face">
-                <img src="http://78.media.tumblr.com/tumblr_lrtr6pjaoG1qcdjq7o1_500.jpg" alt="" class="img-fluid ">
-              </div>
-              <div class="back face center">
-                <h4><a href="/comments/">Here</a></h4>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xs-4 col-sm-4 col-md-4">
-          <div id="f1_container">
-            <div id="f1_card" class="shadow">
-              <div class="back face center">
-                <h4>Add Comment</h4>
-              </div>
-              <div class="front face">
-                <img src="http://78.media.tumblr.com/3b6513ec603453c1a251a3054a228f08/tumblr_o4ailr0sin1tu0p20o1_500.jpg" alt="" class="img-fluid ">
-              </div>
-              <div class="back face center">
-                <h4><a href="/comments/">Here</a></h4>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xs-4 col-sm-4 col-md-4">
-          <div id="f1_container">
-            <div id="f1_card" class="shadow">
-              <div class="back face center">
-                <h4>Add Comment</h4>
-              </div>
-              <div class="front face">
-                <img src="https://i.pinimg.com/736x/58/59/e9/5859e9932fcf773f0b4624b75ffa5d9f--building-photography-minimalism-art.jpg" alt="" class="img-fluid ">
-              </div>
-              <div class="back face center">
-                <h4><a href="/comments/">Here</a></h4>
-              </div>
-            </div>
-          </div>
-        </div>
+        {{macro.displayBloglist(architecture)}}
       </div>
-      </div>
+    </div>
   </div>
 </div>
 {% endblock %}

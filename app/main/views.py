@@ -17,7 +17,8 @@ def posts():
     return render_template('posts.html', test=test, architecture=architecture)
 
 
-@main.route('/comments/<link>')
-def comments(link):
+@main.route('/comments/<int:id>', methods=['GET', 'POST'])
+def comments(id):
     test = "Working!"
-    return render_template('comments.html', test=test)
+    blog = Blog.query.get(id)
+    return render_template('comments.html', test=test, blog=blog)
