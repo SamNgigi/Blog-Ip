@@ -3,7 +3,7 @@ from flask import render_template, redirect, url_for
 from ..models import Blog, Comments
 from .forms import CommentForm
 from flask_login import login_required, current_user
-# from .. import db
+from .. import db
 
 
 @main.route('/')
@@ -17,6 +17,12 @@ def posts():
     architecture = Blog.query.filter_by(category='architecture').all()
     test = 'Working'
     return render_template('posts.html', test=test, architecture=architecture)
+
+
+@main.route('/qoute')
+def qoute():
+    test = 'What does minimalism mean for you?'
+    return render_template('qoute.html', test=test)
 
 
 @main.route('/comments/<int:id>', methods=['GET', 'POST'])
@@ -36,3 +42,12 @@ def comments(id):
                            blog=blog,
                            comments=comments,
                            comment_form=comment_form)
+
+
+@main.route('/delete/<int:id>')
+@login_required
+def delete(id):
+    del_comment = Comments.query.get(id)
+    db.session.delete(del_comment)
+    db.session.commit()
+    return redirect(url_for('main.posts'))
