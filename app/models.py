@@ -2,7 +2,7 @@ from . import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from . import login_manager
-from datetime import datetime
+# from datetime import datetime
 
 # Pitch Model
 
@@ -75,7 +75,7 @@ class Blog(db.Model):
     q_author = db.Column(db.String(255))
     p_url = db.Column(db.String())
     category = db.Column(db.String(255))
-    posted = db.Column(db.DateTime, default=datetime.utcnow)
+    # posted = db.Column(db.DateTime, default=datetime.utcnow)
     users_id = db.Column(db.Integer, db.ForeignKey("users.id"))
 
     all_blogs = []
@@ -84,14 +84,13 @@ class Blog(db.Model):
                  q_body,
                  q_author,
                  p_url,
-                 category,
-                 posted):
+                 category):
 
         self.q_body = q_body
         self.q_author = q_author
         self.p_url = p_url
         self.category = category
-        self. posted = posted
+        # self. posted = posted
 
     def save_blogs(self):
         db.session.add(self)
