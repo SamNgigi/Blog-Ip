@@ -28,6 +28,7 @@ class User(UserMixin, db.Model):
     photos = db.relationship('PhotoProfile', backref='user', lazy="dynamic")
     # Blog
     blog = db.relationship('Blog', backref='user', lazy='dynamic')
+    comment = db.relationship('Comments', backref='user', lazy='dynamic')
 
     # Securing the account
     @property

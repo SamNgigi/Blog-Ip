@@ -15,3 +15,15 @@
   </div>
 </div>
 {% endfor %} {% endmacro %}
+
+ {% macro displayCommentList(comment_list) %} {% for comment in comment_list %}
+<hr>
+<div class="container">
+  <i class="fas fa-times-circle fa-2x fa-pull-right"></i>
+  <blockquote class="blockquote text-center">
+    <p class="mb-0">{{comment.comment}}</p>
+    <footer class="blockquote-footer"><cite title="Source Title">{{comment.user_id}}</cite></footer>
+  </blockquote>
+</div>
+
+{% endfor %} {% endmacro %}
