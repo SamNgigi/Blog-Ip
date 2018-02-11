@@ -10,9 +10,9 @@ app = create_app('dev')
 manager = Manager(app)
 migrate = Migrate(app, db)
 
-manager.add_command('shiro', Server)
+manager.add_command('d', Server)
 # Remember to be resetting the alembic version if you get target data base is not up to date
-manager.add_command('betty', MigrateCommand)
+manager.add_command('r', MigrateCommand)
 
 
 @manager.command
