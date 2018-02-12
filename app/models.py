@@ -55,8 +55,8 @@ class User(UserMixin, db.Model):
 # Profile pictures
 
 
-class PhotoProfile(db.Model):
-    __tablename__ = 'profile_photos'
+class Photos(db.Model):
+    __tablename__ = 'photos'
 
     id = db.Column(db.String(), primary_key=True)
     pic_path = db.Column(db.String())
