@@ -12,17 +12,17 @@ def index():
     return render_template('index.html', test=test)
 
 
-@main.route('/posts')
-def posts():
+@main.route('/gallery')
+def gallery():
     architecture = Blog.query.filter_by(category='architecture').all()
     test = 'Working'
-    return render_template('posts.html', test=test, architecture=architecture)
+    return render_template('gallery.html', test=test, architecture=architecture)
 
 
-@main.route('/qoute')
-def qoute():
+@main.route('/blog')
+def blog():
     test = 'What does minimalism mean for you?'
-    return render_template('qoute.html', test=test)
+    return render_template('blog.html', test=test)
 
 
 @main.route('/comments/<int:id>', methods=['GET', 'POST'])
@@ -50,4 +50,4 @@ def delete(id):
     del_comment = Comments.query.get(id)
     db.session.delete(del_comment)
     db.session.commit()
-    return redirect(url_for('main.posts'))
+    return redirect(url_for('main.gallery'))
