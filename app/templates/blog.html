@@ -3,8 +3,34 @@
 <div class="container">
   <p>Share :)</p>
   <form action="" method='post' enctype='multipart/form-data'>
-    <input type="file" name="photo" class="form-control" class="form-control" required>
-    <input class="form-control btn btn-outline-warning mt-2" type="submit">
+    <div class="row mt-3">
+      {{blog_form.p_body.label}}
+    </div>
+    <div class="row">
+      {{blog_form.hidden_tag()}} {{blog_form.p_body(class_='form-control', placeholder="Enter text")}}
+    </div>
+    <div class="row mt-3">
+      {{blog_form.p_author.label}}
+    </div>
+    <div class="row">
+      {{blog_form.hidden_tag()}} {{blog_form.p_author(class_='form-control', placeholder="Usename")}}
+    </div>
+    <div class="row mt-3">
+      {{blog_form.p_url.label}}
+    </div>
+    <div class="row">
+      {{blog_form.hidden_tag()}} {{blog_form.p_url(class_='form-control')}}
+      <small id="" class="form-text text-muted">Images should be 500x500</small>
+    </div>
+    <div class="row mt-3">
+      {{blog_form.category.label}}
+    </div>
+    <div class="row form-check form-check-inline ">
+      {{blog_form.hidden_tag()}} {{blog_form.category(class_='form-check-input')}}
+    </div>
+    <div class="row">
+      {{blog_form.submit(class_="btn btn-outline-warning")}}
+    </div>
   </form>
 </div>
 

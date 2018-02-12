@@ -52,11 +52,9 @@ class User(UserMixin, db.Model):
     def __repr__(self):
         return f'User {self.username}'
 
-# Profile pictures
 
-
-class Photos(db.Model):
-    __tablename__ = 'photos'
+class PhotoProfile(db.Model):
+    __tablename__ = 'profile_photos'
 
     id = db.Column(db.String(), primary_key=True)
     pic_path = db.Column(db.String())
@@ -70,8 +68,8 @@ class Blog(db.Model):
     __tablename__ = 'blogs'
 
     id = db.Column(db.Integer, primary_key=True)
-    q_body = db.Column(db.String)
-    q_author = db.Column(db.String(255))
+    p_body = db.Column(db.String)
+    p_author = db.Column(db.String)
     p_url = db.Column(db.String())
     category = db.Column(db.String(255))
     # posted = db.Column(db.DateTime, default=datetime.utcnow)
@@ -80,13 +78,13 @@ class Blog(db.Model):
     all_blogs = []
 
     def __init__(self,
-                 q_body,
-                 q_author,
+                 p_body,
+                 p_author,
                  p_url,
                  category):
 
-        self.q_body = q_body
-        self.q_author = q_author
+        self.p_body = p_body
+        self.p_author = p_author
         self.p_url = p_url
         self.category = category
         # self. posted = posted
