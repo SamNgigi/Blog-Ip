@@ -1,8 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import TextAreaField, SubmitField, StringField, RadioField
-from flask_wtf.file import FileField, FileAllowed, FileRequired
 from wtforms.validators import Required
-from .. import photos
 
 
 class BlogForm(FlaskForm):
@@ -13,8 +11,7 @@ class BlogForm(FlaskForm):
                                    ('nature', 'nature'),
                                    ('artchitecture', 'artchitecture')],
                           validators=[Required()])
-    p_url = FileField('Upload photo', validators=[
-                      FileRequired(), FileAllowed(photos, 'Images only.')])
+    p_url = TextAreaField('Enter image url', validators=[Required()])
     submit = SubmitField('Submit')
 
 
