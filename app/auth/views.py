@@ -41,6 +41,5 @@ def login():
 @auth.route('/logout')
 @login_required
 def logout():
-    logout_test = 'Log out working!'
     flash('You have been successfully logged out')
-    return redirect(url_for('main.index'), logout_test=logout_test)
+    return redirect(url_for('main.index'))
