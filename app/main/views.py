@@ -14,10 +14,16 @@ def index():
 
 @main.route('/gallery')
 def gallery():
+    all = Blog.query.all()
+    people = Blog.query.filter_by(category='people').all()
+    nature = Blog.query.filter_by(category='nature').all()
     architecture = Blog.query.filter_by(category='architecture').all()
     test = 'Working'
     return render_template('gallery.html',
-                           test=test, architecture=architecture)
+                           all=all,
+                           test=test,
+                           nature=nature,
+                           people=people, architecture=architecture)
 
 
 @main.route('/blog', methods=['GET', 'POST'])
@@ -35,7 +41,7 @@ def blog():
                         p_url=p_url)
         db.session.add(new_post)
         db.session.commit()
-        return redirect(url_for('main.gallery'))
+        return redirect(url_for('main.blog'))
     return render_template('blog.html', test=test, blog_form=blog_form)
 
 
