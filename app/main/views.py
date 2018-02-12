@@ -1,9 +1,9 @@
 from . import main
-from flask import render_template, redirect, url_for
+from flask import render_template, redirect, url_for, request
 from ..models import Blog, Comments
 from .forms import CommentForm
 from flask_login import login_required, current_user
-from .. import db
+from .. import db, photos
 
 
 @main.route('/')
@@ -16,12 +16,16 @@ def index():
 def gallery():
     architecture = Blog.query.filter_by(category='architecture').all()
     test = 'Working'
-    return render_template('gallery.html', test=test, architecture=architecture)
+    return render_template('gallery.html',
+                           test=test, architecture=architecture)
 
 
-@main.route('/blog')
+@main.route('/blog', methods=['GET', 'POST'])
 def blog():
     test = 'What does minimalism mean for you?'
+    if request.method == 'POST' and 'photo' in request.files:
+        filename = photos.save(request.files['photo'])
+        return filename
     return render_template('blog.html', test=test)
 
 

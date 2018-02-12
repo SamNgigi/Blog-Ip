@@ -1,3 +1,11 @@
 {% extends 'base.html' %} {% import 'macros.html' as macro %} {% block content %}
-  <h4>{{test}}</h4>
+
+<div class="container">
+  <p>Share :)</p>
+  <form action="" method='post' enctype='multipart/form-data'>
+    <input type="file" name="photo" class="form-control" class="form-control" required>
+    <input class="form-control btn btn-outline-warning mt-2" type="submit">
+  </form>
+</div>
+
 {% endblock %}
