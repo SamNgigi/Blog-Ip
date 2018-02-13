@@ -1,4 +1,4 @@
-
+![TheMin](the-min.png)
 
 ## TheMIn
 
@@ -56,7 +56,10 @@ This is an app that allows users to view,submit & comment on blogs based on cate
 ### Known bugs, support and Contacts
 
 - Uploading photos is still in development.
-- Architecture category not working properly on deployed site
+- Architecture category not working properly on deployed site.
+- Comments not appending to the relevant blog post. It displays on all.
+
+Note- Always begin from the back-end.
 
 Application is still in development phase and still being updated. In case You have any issues using this code please do no hesitate to get in touch with me through sam.t.ngigi@gmail.com or leave a comment here on github.
 
