@@ -7,7 +7,7 @@ class Config:
     """
     SECRET_KEY = os.environ.get('SECRET_KEY')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://sam:Sam@localhost/blog'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://sam:Sam@localhost/blog'
     UPLOADED_PHOTOS_DEST = 'app/static/photos'
     # pass
 
@@ -16,7 +16,7 @@ class ProdConfig(Config):
     """
     Child Config with production configurations
     """
-    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+    # SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
     # pass
 
 

@@ -5,14 +5,17 @@ from flask_migrate import Migrate, MigrateCommand
 from app.models import Blog, User
 
 # The config we'll be running the app on
-# app = create_app('dev')
-app = create_app('prod')
+app = create_app('dev')
+# app = create_app('prod')
 
 manager = Manager(app)
 migrate = Migrate(app, db)
 
 manager.add_command('d', Server)
-# Remember to be resetting the alembic version if you get target data base is not up to date
+"""
+Remember to be resetting the alembic version if you get target
+data base is not up to date
+"""
 manager.add_command('r', MigrateCommand)
 
 
