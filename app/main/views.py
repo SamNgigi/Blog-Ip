@@ -1,9 +1,9 @@
 from . import main
-from flask import render_template, redirect, url_for, request
+from flask import render_template, redirect, url_for  # , request
 from ..models import Blog, Comments
 from .forms import CommentForm, BlogForm
 from flask_login import login_required, current_user
-from .. import db, photos
+from .. import db  # , photos
 
 
 @main.route('/')
