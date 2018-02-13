@@ -5,7 +5,7 @@ from flask_migrate import Migrate, MigrateCommand
 from app.models import Blog, User
 
 # The config we'll be running the app on
-app = create_app('dev')
+# app = create_app('dev')
 app = create_app('prod')
 
 manager = Manager(app)
