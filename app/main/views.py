@@ -41,7 +41,7 @@ def blog():
                         p_url=p_url)
         db.session.add(new_post)
         db.session.commit()
-        return redirect(url_for('main.blog'))
+        return redirect(url_for('main.gallery'))
     return render_template('blog.html', test=test, blog_form=blog_form)
 
 
